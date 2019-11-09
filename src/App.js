@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
 
-function App() {
+class Username extends React.Component {
+  state = { value: "" };
+
+  changeValue(value) {
+    this.setState({ value });
+  }
+
+  render() {
+    const { value } = this.state;
+    return <h1>{value}</h1>;
+  }
+}
+
+export default function App() {
+    const inputEl = useRef(null);
+
+  function clickHandler() {
+    console.log(inputEl.current)
+    // inputEl.current = "hello";
+    console.log(inputEl.current.changeValue("fewfe"))
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={clickHandler}>Change Username</button>
+      <input type="text" />
+      <Username ref={inputEl}/>
     </div>
   );
 }
-
-export default App;
