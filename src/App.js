@@ -18,7 +18,6 @@ export default function App() {
 
   function clickHandler() {
     console.log(inputEl.current)
-    // inputEl.current = "hello";
     console.log(inputEl.current.changeValue("fewfe"))
   }
   
@@ -27,6 +26,7 @@ export default function App() {
     <div>
       <button onClick={clickHandler}>Change Username</button>
       <input type="text" />
+      <h1>Kashan is a genius boy :) [Commit 1]</h1>
       <Username ref={inputEl}/>
     </div>
   );
